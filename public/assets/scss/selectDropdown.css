@@ -1,0 +1,87 @@
+.selectDropdown {
+  position: relative;
+}
+
+.selectDropdown ul {
+  background: #fff;
+  -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 12px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 250px;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 15;
+}
+
+.selectDropdown ul.dropdown-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.selectDropdown ul li {
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 14px;
+  color: #3c3c3c;
+  cursor: pointer;
+  padding: 10px 0;
+  text-transform: capitalize;
+  padding-right: 40px;
+  position: relative;
+}
+
+.selectDropdown ul li:not(:last-of-type) {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.selectDropdown ul li.selected {
+  color: #2789fb;
+}
+
+.selectDropdown ul li.selected::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 14px;
+  color: #2789fb;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.selected-item {
+  position: relative;
+  font-size: 12px;
+  line-height: 14px;
+  color: #8e8e8e;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: 14px;
+  position: relative;
+}
+
+.selected-item::after {
+  content: "\f0dc";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 18px;
+  color: #3c3c3c;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/*# sourceMappingURL=selectDropdown.css.map */

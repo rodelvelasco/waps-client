@@ -1,0 +1,576 @@
+.rateRule-sec {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.contract-container {
+	flex-basis: 25%;
+	max-width: 25%;
+	border-right: 2px solid #ccc;
+	// margin-right: 30px;
+	padding: 0 15px;
+
+	button {
+		position: relative;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+		padding: 10px 20px;
+		color: #383d41;
+		background-color: #e2e3e5;
+		border: 1px solid #d6d8db;
+		border-radius: 0.25rem;
+		margin-bottom: 15px;
+	}
+
+	.contract-list {
+		max-height: 560px;
+		overflow-y: auto;
+	}
+
+	.cont-list-toggler {
+		+ .contract-list {
+			opacity: 0;
+			visibility: hidden;
+			transition: all 300ms ease-in-out;
+
+			&.active {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+.rateRule-container {
+	flex-basis: 50%;
+	max-width: 50%;
+	padding: 0 15px;
+
+	& > .form-field {
+		position: relative;
+		margin-bottom: 30px;
+
+		label {
+			font-size: 14px;
+			font-weight: 700;
+			display: inline-block;
+			margin-right: 15px;
+		}
+
+		input {
+			background-color: transparent;
+			border: 1px solid #d6d8db;
+			padding: 10px 20px;
+			line-height: 1.2;
+		}
+
+		button {
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			color: #0065d2;
+			margin-left: 15px;
+			display: inline-block;
+		}
+	}
+
+	.nav.nav-pills {
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 30px;
+
+		li {
+			a {
+				position: relative;
+				display: inline-block;
+				padding: 10px 20px;
+				font-weight: 500;
+				color: #000;
+
+				&.active {
+					&:after {
+						position: absolute;
+						content: "";
+						bottom: 0;
+						left: 0;
+						background: #000;
+						width: 100%;
+						height: 2px;
+					}
+				}
+			}
+		}
+	}
+
+	.parameter-row {
+		border-bottom: none;
+		padding: 0;
+		padding-left: 55px;
+		margin-bottom: 20px;
+
+		&-heading {
+			padding-left: 55px;
+
+			p {
+				font-size: 14px;
+				font-weight: 700;
+				text-transform: capitalize;
+				margin-bottom: 0;
+
+				@media screen and (max-width: 1400px) {
+					font-size: 12px;
+				}
+			}
+		}
+
+		label {
+			display: none;
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
+
+		input:not([type="checkbox"]):not([type="radio"]) {
+			width: 100%;
+			background-color: transparent;
+			border: 1px solid #d6d8db;
+			padding: 10px 20px;
+			line-height: 1.2;
+		}
+
+		select {
+			min-width: 100%;
+			width: 100%;
+			padding: 5px 20px;
+			background-color: transparent;
+			border: 1px solid #d6d8db;
+			height: auto;
+		}
+	}
+}
+
+.contract-form {
+	.form-field {
+		margin-bottom: 10px;
+
+		label {
+			display: block;
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: capitalize;
+			line-height: 16px;
+
+			@media screen and (max-width: 1400px) {
+				font-size: 12px;
+			}
+
+			input {
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+		}
+
+		input:not([type="checkbox"]):not([type="radio"]) {
+			font-size: 14px;
+			width: 100%;
+			background-color: transparent;
+			border: 1px solid #d6d8db;
+			padding: 10px 10px;
+			line-height: 1.2;
+		}
+
+		select {
+			font-size: 14px;
+			width: 100%;
+			padding: 10px 10px;
+			background-color: transparent;
+			border: 1px solid #d6d8db;
+		}
+
+		input + button {
+			position: absolute;
+			right: -5px;
+			bottom: 18px;
+			font-size: 14px;
+			border: none;
+			background: transparent;
+		}
+	}
+}
+.contract-table {
+	max-height: 400px;
+	overflow-y: auto;
+	table {
+		margin-bottom: 0;
+	}
+}
+
+.accordion-container {
+	border-left: 2px solid #ccc;
+	flex-basis: 25%;
+	max-width: 25%;
+	padding: 0 15px;
+
+	.accordion .acc-item {
+		border-color: #ddd;
+	}
+	.accordion .acc-toggler {
+		color: #b45f06;
+		// padding: 0;
+		// padding-left: 20px;
+
+		&:after {
+			color: #b45f06;
+			content: "\f054";
+			margin: 0;
+			transform: translateY(-50%) rotate(0);
+		}
+
+		&.active {
+			&:after {
+				transform: translateY(-50%) rotate(90deg);
+			}
+		}
+	}
+
+	.panel {
+		max-height: auto;
+	}
+}
+.rr-title {
+	position: relative;
+	color: #b45f06;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.contract-list,
+.history-list {
+	position: relative;
+	display: block;
+	padding: 0 0 0 15px;
+	margin: 15px 0 0;
+	list-style: none;
+
+	li {
+		margin-bottom: 15px;
+		position: relative;
+
+		b {
+			position: relative;
+			display: block;
+			font-size: 15px;
+		}
+
+		span {
+			display: block;
+			font-size: 14px;
+		}
+
+		a {
+			display: block;
+			font-size: 14px;
+			text-decoration: underline;
+		}
+	}
+}
+
+.history-list {
+	padding: 0;
+	// height: 300px;
+	// overflow-y: auto;
+
+	li {
+		background: #eee;
+		border-radius: 5px;
+		padding: 10px 20px;
+	}
+}
+
+.origin-dest-wrap {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+
+	address {
+		margin: 0;
+		display: block;
+		color: #b45f06;
+		line-height: 1.2;
+	}
+
+	h5 {
+		font-size: 14px;
+		display: block;
+
+		i {
+			margin-left: 7px;
+			font-size: 12px;
+			cursor: pointer;
+		}
+	}
+}
+
+.exng-icon {
+	font-size: 30px;
+	color: #929292;
+}
+
+/************************
+ * Freight Classes
+*************************/
+.freight-classes {
+	.radio-group {
+		display: inline-block;
+		margin-right: 25px;
+	}
+}
+
+.single-freight {
+	position: relative;
+	padding: 15px;
+	border: 2px solid #ccc;
+	/* box-shadow: 0 5px 10px rgb(0 0 0 / 7%); */
+	background: #eee;
+}
+
+.sf-header {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 10px;
+
+	p {
+		font-size: 14px;
+		font-weight: 500;
+		text-transform: capitalize;
+		margin: 0;
+	}
+}
+
+.freight-list {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 14px;
+		font-weight: 500;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		select {
+			padding: 5px 10px;
+			text-align: left;
+			min-width: 80px;
+			border: 1px solid #ccc;
+			font-size: 14px;
+		}
+	}
+}
+
+.transport-mode {
+	.form-field {
+		label {
+			display: inline-block;
+			margin-right: 10px;
+
+			@media screen and (max-width: 1400px) {
+				margin-right: 5px;
+				font-size: 12px;
+			}
+
+			input {
+				@media screen and (max-width: 1400px) {
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+.status-txt-field {
+	strong {
+		font-size: 14px;
+		display: block;
+		line-height: 1;
+	}
+}
+.status-text {
+	position: relative;
+	display: inline-block;
+	font-size: 14px;
+	padding-right: 20px;
+
+	&:after {
+		content: "";
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #cccc;
+		position: absolute;
+		right: 0;
+		top: 9px;
+	}
+
+	&.success {
+		&::after {
+			background: #009e0f;
+		}
+	}
+}
+
+.rr-table-content-header {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+	.form-field {
+		position: relative;
+		flex: 1;
+		margin-right: 15px;
+		min-width: 200px;
+
+		@media screen and (max-width: 1600px) {
+			margin-bottom: 15px;
+		}
+
+		@media screen and (max-width: 1400px) {
+			margin-right: 0;
+		}
+
+		input {
+			width: 100%;
+			padding: 19px 15px;
+			border-radius: 5px;
+		}
+
+		button {
+			position: absolute;
+			right: 10px;
+			top: 5px;
+			background: transparent;
+			border: none;
+		}
+	}
+}
+
+/*******************************************
+** CSS for "Search Setting" page
+*********************************************/
+.setting-search {
+	.form-field {
+		position: relative;
+		min-width: 260px;
+
+		label {
+			display: block;
+			margin-bottom: 0;
+		}
+
+		input,
+		select {
+			width: 100%;
+			display: block;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+	}
+}
+
+.price-filter {
+	display: block;
+
+	input {
+		margin: 0;
+
+		&:first-of-type {
+			margin-right: 10px;
+		}
+		&:last-of-type {
+			margin-left: 10px;
+		}
+	}
+}
+
+.pagination li a {
+	padding: 10px 17px;
+}
+
+/*******************************************
+** CSS for - Search panel 
+*********************************************/
+.search-panel-wrap {
+	padding-right: 0;
+	left: -500px;
+}
+.search-panel-toggler {
+	right: -40px;
+}
+
+#default-table th > i {
+	margin-left: 5px;
+}
+
+.checked-icon {
+	color: #6aa84f;
+	margin-left: 10px;
+	font-size: 20px;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+}
+
+.user-list .table {
+	border-bottom: 1px solid #dee2e6;
+	margin-bottom: 40px;
+}
+
+.origin {
+	position: relative;
+	padding-right: 25px;
+
+	address + button {
+		position: absolute;
+		right: 0;
+		top: 17px;
+		border: none;
+		background: transparent;
+		font-size: 14px;
+	}
+}
+
+.contract-actions-btn {
+	margin: 20px 0;
+	position: relative;
+
+	button {
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+		padding: 8px 20px;
+		font-size: 14px;
+
+		&:not(:last-of-type) {
+			margin-right: 10px;
+		}
+
+		i {
+			margin-right: 10px;
+		}
+	}
+}
+
+.vertical-scrollbox {
+	max-height: 300px;
+	overflow-y: auto;
+}
