@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import LineSmooth from "../../Chart/LineSmooth";
 
 type State = {
 
@@ -34,8 +35,112 @@ class DashboardContainer extends PureComponent<Props, State> {
     return (
     
         <React.Fragment>
-            <div >
+            <div>
                 <p>Dashboard</p>
+                <div>
+                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
+                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
+                          <LineSmooth
+                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            maxVal={600}
+                            label={['Temperature']}
+                            unit={'Farenheiht'}
+                          />
+                        </div>
+                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
+                            <div class="div-chart-sum">
+                                <div>
+                                  <ul>
+                                      <li>
+                                        <a className="btn-today">
+                                          Average
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a className="btn-today">
+                                          Maximum
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a className="btn-today">
+                                          Minimum
+                                        </a>
+                                      </li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
+                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
+                          <LineSmooth
+                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            maxVal={600}
+                            label={['Temperature']}
+                            unit={'Farenheiht'}
+                          />
+                        </div>
+                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
+                            <div class="div-chart-sum">
+                              <div>
+                                <ul>
+                                    <li>
+                                      <a className="btn-today">
+                                        Average
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a className="btn-today">
+                                        Maximum
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a className="btn-today">
+                                        Minimum
+                                      </a>
+                                    </li>
+                                </ul>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
+                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
+                          <LineSmooth
+                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
+                            maxVal={600}
+                            label={['Temperature']}
+                            unit={'Farenheiht'}
+                          />
+                        </div>
+                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
+                            <div class="div-chart-sum">
+                                <div>
+                                  <ul>
+                                      <li>
+                                        <a className="btn-today">
+                                          Average
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a className="btn-today">
+                                          Maximum
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a className="btn-today">
+                                          Minimum
+                                        </a>
+                                      </li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
             </div>
         </React.Fragment>
     );

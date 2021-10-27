@@ -49,9 +49,24 @@ td.notthis:hover {
     text-align: center;
 }
 
+.div-chart-sum {
+	padding: 5px 5px;
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    line-height: 140px;
+    text-align: left;  
+  }
+
 .div-dash-head {
 	border-radius: 20px;
-	box-shadow: 10px 10px 5px grey;
+	/* box-shadow: 10px 10px 5px grey; */
 	padding: 5px 20px;
 	background-color: #344256;
 	border: 1px solid;
