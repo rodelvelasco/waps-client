@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 
 class RadialStroked extends React.Component {
@@ -45,6 +45,7 @@ class RadialStroked extends React.Component {
 					}
 				},
 				fill: {
+					colors: ['#E91E63'], // // '#F44336', '#E91E63', '#9C27B0' #FFFF00 yellow, blue #0000FF, white #FFFFFF
 					type: 'gradient',
 					gradient: {
 							shade: 'dark',
@@ -56,7 +57,12 @@ class RadialStroked extends React.Component {
 					},
 				},
 				stroke: {
-					dashArray: 4
+					dashArray: 0,
+					// show: true,
+					curve: 'smooth',
+					lineCap: 'butt',
+					colors: ['#FFFF00'], // #FFFF00 yellow, blue #0000FF, white #FFFFFF
+					width: 2,
 				},
 				labels: props.label,
 			},

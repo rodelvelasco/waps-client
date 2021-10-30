@@ -9,9 +9,11 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './store/sagas/rootSaga';
 import dashboardReducer from "./store/reducers/dashboard";
+import chartReducer from "./store/reducers/chart";
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 const rootReducer = combineReducers({
-    dashboard: dashboardReducer
+    dashboard: dashboardReducer,
+    chart: chartReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();

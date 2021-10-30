@@ -2,20 +2,20 @@
 import { connect } from 'react-redux';
 import ChartContainer from './ChartContainer';
 
-import {attemptToGetDashboard,resetGetDashboardState
-} from '../../../store/actions/dashboardAction';
+import {attemptToGetChart,resetGetChartState
+} from '../../../store/actions/chartAction';
 import {
-    dashboardStateSelector
-} from '../../../store/selectors/dashboardSelector';
+    chartStateSelector
+} from '../../../store/selectors/chartSelector';
 
 
 const mapStateToProps = store => ({
-    dashboardState: dashboardStateSelector(store)
+    chartState: chartStateSelector(store)
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchDashboard: (data) => dispatch(attemptToGetDashboard(data)),
-    resetDashboard: () => dispatch(resetGetDashboardState())   
+    fetchChart: (data) => dispatch(attemptToGetChart(data)),
+    resetChart: () => dispatch(resetGetChartState())   
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChartContainer);

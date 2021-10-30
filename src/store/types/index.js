@@ -11,3 +11,11 @@ export type DashboardState = {
     status: ?string
   }
 }
+
+export type ChartState = {
+  chart : {
+    data: ?Object,
+    error: ?string,
+    status: ?string
+  }
+}

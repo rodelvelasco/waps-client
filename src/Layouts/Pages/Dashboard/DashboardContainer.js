@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-
-import Radial from "../../Chart/Radial";
-import RadialGradient from "../../Chart/RadialGradient";
-import RadialSemiCircle from "../../Chart/RadialSemiCircle";
+import { withRouter } from 'react-router-dom';
 import RadialStroked from "../../Chart/RadialStroked";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
@@ -132,7 +128,7 @@ class DashboardContainer extends PureComponent<Props, State> {
               <br/>
               <div className="mt-inner">
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Temperature]}
@@ -145,7 +141,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Pressure]}
@@ -158,7 +154,7 @@ class DashboardContainer extends PureComponent<Props, State> {
 
 
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Altitude]}
@@ -170,7 +166,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Humidity]}
@@ -182,7 +178,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                   <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.SoilMoisture]}
@@ -194,7 +190,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                   <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Light]}
@@ -206,7 +202,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                   <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.WaterFlow]}
@@ -218,7 +214,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Nitrogen]}
@@ -230,7 +226,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                    <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Phosphorous]}
@@ -242,7 +238,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                   </div>
 
                   <div class="div-dash">
-                    <div class="row rptpad div-dash-head">
+                    <div class="row dashpad div-dash-head">
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Potassium]}

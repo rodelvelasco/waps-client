@@ -1,145 +1,92 @@
 import React, { PureComponent } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import LineSmooth from "../../Chart/LineSmooth";
 
 type State = {
 
 }
 type Props = {
-    dashboardState : Object,
-    fetchDashboard: Function,
-    resetDashboard: Function
+    chartState : Object,
+    fetchChart: Function,
+    resetChart: Function
 }
 
-class DashboardContainer extends PureComponent<Props, State> {
+class ChartContainer extends PureComponent<Props, State> {
 
   constructor(props: Props, context: Context) {
     super(props, context);
     this.state = {
-     }
+    }
+    this.chartData = []
   }
 
 
   componentWillMount() {
     console.log('componentWillMount');
-    const {fetchDashboard, resetDashboard } = this.props;
-    fetchDashboard();
+    const {fetchChart } = this.props;
+    fetchChart('thisweek');
   }
   componentDidMount() {
     console.log('componentDidMount');
-    this.props.fetchDashboard('all');
+    this.props.fetchChart('thisweek');
   }
 
   render() {
-    const { fetchDashboard, resetDashboard, dashboardState } = this.props;
+    const { chartState } = this.props;
+    console.log('chartState', chartState);
+    console.log('chartState data', chartState.data);
+    let data = [] ; 
+    if (chartState && chartState.status === 'Succeed') {
+      console.log('chartData ', new Date());
+      console.log('chartData', chartState.data.data);
+      this.chartData = chartState.data.data;
+      this.setState({
+				...this.state,
+        data: chartState.data.data
+      })
+      console.log('deviceData', this.chartData);
+      console.log('this.state', this.state);
+      // console.log('this.state.data.Temperature', this.state.data.Temperature);
+      this.isLoading = false;
+    } 
+
     return (
-    
         <React.Fragment>
             <div>
-                <p>Dashboard</p>
                 <div>
-                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
-                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
-                          <LineSmooth
-                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            maxVal={600}
-                            label={['Temperature']}
-                            unit={'Farenheiht'}
-                          />
-                        </div>
-                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
-                            <div class="div-chart-sum">
-                                <div>
-                                  <ul>
-                                      <li>
-                                        <a className="btn-today">
-                                          Average
-                                        </a>
-                                      </li>
-                                      <li>
-                                        <a className="btn-today">
-                                          Maximum
-                                        </a>
-                                      </li>
-                                      <li>
-                                        <a className="btn-today">
-                                          Minimum
-                                        </a>
-                                      </li>
-                                  </ul>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
-                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
-                          <LineSmooth
-                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            maxVal={600}
-                            label={['Temperature']}
-                            unit={'Farenheiht'}
-                          />
-                        </div>
-                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
-                            <div class="div-chart-sum">
-                              <div>
-                                <ul>
-                                    <li>
-                                      <a className="btn-today">
-                                        Average
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a className="btn-today">
-                                        Maximum
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a className="btn-today">
-                                        Minimum
-                                      </a>
-                                    </li>
-                                </ul>
+                    {
+                      this.chartData.map(data => (
+                        <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
+                          <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>
+                            <LineSmooth
+                              series={data.series}
+                              seriesName={data.seriesName}
+                              categories={data.categories}
+                              maxVal={data.maxVal}
+                              name={data.name}
+                              unit={data.unit}
+                            />
+                          </div>
+                          <div className="col-md-3" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px'}} id={data.name + '_b'}>
+                              <div className="div-chart-sum" id={data.name + '_ba'}>
+                                  <div id={data.name + '_bb'}>
+                                    <ul>
+                                        <li id={data.name + '1'}>
+                                          <a>Average&nbsp;:&nbsp;{data.avg}</a>
+                                        </li>
+                                        <li id={data.name + '2'}>
+                                          <a>Maximum&nbsp;:&nbsp;{data.max}</a>
+                                        </li>
+                                        <li id={data.name + '3'}>
+                                          <a>Minimum&nbsp;:&nbsp;{data.min}</a>
+                                        </li>
+                                    </ul>
+                                  </div>
                               </div>
-                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}}>
-                        <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px',}}>
-                          <LineSmooth
-                            series={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            categories={[30, 40, 45, 50, 49, 60, 70, 91]}
-                            maxVal={600}
-                            label={['Temperature']}
-                            unit={'Farenheiht'}
-                          />
-                        </div>
-                        <div className="col-md-3" style={{ marginTop: '20px', marginLeft: '20px', marginRight: '20px',}}>
-                            <div class="div-chart-sum">
-                                <div>
-                                  <ul>
-                                      <li>
-                                        <a className="btn-today">
-                                          Average
-                                        </a>
-                                      </li>
-                                      <li>
-                                        <a className="btn-today">
-                                          Maximum
-                                        </a>
-                                      </li>
-                                      <li>
-                                        <a className="btn-today">
-                                          Minimum
-                                        </a>
-                                      </li>
-                                  </ul>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
+                      ))
+                    }
                 </div>
             </div>
         </React.Fragment>
@@ -147,4 +94,4 @@ class DashboardContainer extends PureComponent<Props, State> {
   }
 }
 
-export default withRouter(DashboardContainer);
+export default withRouter(ChartContainer);

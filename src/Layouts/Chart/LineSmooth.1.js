@@ -11,7 +11,7 @@ class LineSmooth extends Component {
           id: "basic-bar"
         },
         xaxis: {
-          categories: props.categories
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
         },
         stroke: {
           curve: 'smooth',
@@ -49,7 +49,7 @@ class LineSmooth extends Component {
           },  
         },
         title: {
-          text: props.name,
+          text: 'Temperature',
           align: 'center',
           margin: 10,
           offsetX: 0,
@@ -65,8 +65,8 @@ class LineSmooth extends Component {
       },
       series: [
         {
-          name: props.seriesName,
-          data: props.categories
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91,30, 40, 45, 50, 49, 60, 70, 91,30, 40, 45, 50, 49, 60, 70, 91,30, 40, 45, 50, 49, 60, 70, 91,30, 40, 45, 50, 49, 60, 70, 91]
         }
       ]
     };

@@ -23,7 +23,7 @@ const headers = {
 
 function* getDashboard(rqst) {
   try {
-    console.log('getDashboard', rqst);
+    console.log('getDashboard rqst', rqst);
     const response = yield axios.get(`${RESOURCE_PREFIX}`, rqst.payload,{headers});
     console.log('[fetch dashboard data]',response);
     yield put(setGetDashboardSucceed(response));
