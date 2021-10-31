@@ -13,7 +13,6 @@ type Props = {
 }
 
 let isLoading = false;
-
 class ChartContainer extends PureComponent<Props, State> {
 
   constructor(props: Props, context: Context) {
