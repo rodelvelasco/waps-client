@@ -54,6 +54,26 @@ class ChartContainer extends PureComponent<Props, State> {
     return (
         <React.Fragment>
             <div>
+                <div style={{marginBottom: '30px', marginLeft: '40px'}}>
+                    <button id="today" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
+                    Today
+                    </button>&nbsp;
+                    <button id="one_month" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
+                    This Week
+                    </button>&nbsp;
+                    <button id="six_months" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
+                    Last Week
+                    </button>&nbsp;
+                    <button id="one_year" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
+                    This Month
+                    </button>&nbsp;
+                    <button id="ytd" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
+                    Last Month
+                    </button>&nbsp;
+                    <button id="all" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'orange', color: 'white'}}>
+                    This Year
+                    </button>
+                </div>
                 {/* <div>
                       <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
                           <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>

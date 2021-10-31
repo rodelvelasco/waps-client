@@ -97,6 +97,12 @@ td.notthis:hover {
 	line-height: 250px;    
 }
 
+.btn-dt-range {
+	padding-right: 10 !important;
+    padding-left: 10 !important;
+	box-shadow: none !important
+}
+
 .count-font{
 	font-weight: 600;
 	font-size: 45px;
