@@ -15,48 +15,35 @@ class LineSmooth extends Component {
             autoScaleYaxis: true
           }
         },
-        dataLabels: {
-          enabled: false
-        },
-        // fill: {
-        //   type: 'gradient',
-        //   gradient: {
-        //     shadeIntensity: 1,
-        //     opacityFrom: 0.7,
-        //     opacityTo: 0.9,
-        //     stops: [0, 100]
-        //   }
-        // },
         fill: {
-          type: 'gradient',
-          colors: [props.color],
+          // type: 'gradient',
+          colors: ['#FF0000', '#87CEEB'],
           opacity: 0.2,
           type: 'solid',
-          // gradient: {
-          //   shadeIntensity: 1,
-          //   opacityFrom: 0.7,
-          //   opacityTo: 0.6,
-          //   stops: [0, 100]
-          // }
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.6,
+            stops: [0, 100]
+          }
         },
         markers: {
           size: 0,
           style: 'hollow',
         },
-        xaxis: {
-          categories: props.categories,
-          tickAmount: 10,
-          type: 'datetime'
-        },
+        // xaxis: {
+        //   categories: props.categories,
+        //   tickAmount: 6,
+        // },
         // xaxis: {
         //   type: 'datetime',
         //   min: new Date('01 Mar 2012').getTime(),
         //   tickAmount: 6,
         // },
         stroke: {
-          // curve: 'smooth',
+          curve: 'smooth',
           width: 5,
-          colors: [props.color] // #FFFF00 yellow, blue #0000FF, white #FFFFFF, skybue #87CEEB, red #FF0000
+          colors: ['#87CEEB'] // #FFFF00 yellow, blue #0000FF, white #FFFFFF, skybue #87CEEB, red #FF0000
         },
         grid: {
           show: true,
@@ -106,7 +93,7 @@ class LineSmooth extends Component {
       series: [
         {
           name: props.seriesName,
-          data: props.series
+          data: props.categories
         }
       ]
     };

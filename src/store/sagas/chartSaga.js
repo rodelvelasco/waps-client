@@ -25,43 +25,47 @@ function* getChart(rqst) {
     console.log('getChart rqst', rqst);
     const response_ = yield axios.get(`${RESOURCE_PREFIX}/${rqst.payload}`, {headers});
     console.log('response_', response_);
+    // #FFFF00 yellow, blue #0000FF, white #FFFFFF, skybue #87CEEB, red #FF0000, green #00FF00
     const data = [
       {
         name: 'Temperature',
         series: [30, 40, 45, 50, 49, 60, 70, 91],
         seriesName: '',
-        categories: [30, 40, 45, 50, 49, 60, 70, 91],
+        categories: [1633833600001, 1633833600000, 1633833660000, 1633833720000, 1633833780000, 1633833780000,1633833840000, 1633834200000],
         maxVal: 600,
         label: ['Temperature'],
         unit:'Farenheiht',
         avg: 33,
         max: 91,
-        min: 30
+        min: 30,
+        color: '#FF0000'
       },
       {
         name: 'Pressure',
         series: [30, 40, 45, 50, 49, 60, 70, 91],
         seriesName: '',
-        categories: [30, 40, 45, 50, 49, 60, 70, 91],
+        categories: [1633833600001, 1633833600000, 1633833660000, 1633833720000, 1633833780000, 1633833780000,1633833840000, 1633834200000],
         maxVal: 600,
         label: ['Pressure'],
         unit:'psi',
         avg: 34,
         max: 91,
-        min: 30
+        min: 30,
+        color: '#87CEEB'
       },
       ,
       {
         name: 'Humidity',
         series: [30, 40, 45, 50, 49, 60, 70, 91],
         seriesName: '',
-        categories: [30, 40, 45, 50, 49, 60, 70, 91],
+        categories: [1633833600001, 1633833600000, 1633833660000, 1633833720000, 1633833780000, 1633833780000,1633833840000, 1633834200000],
         maxVal: 600,
         label: ['Pressure'],
         unit:'psi',
         avg: 35,
         max: 91,
-        min: 30
+        min: 30,
+        color: '#00FF00'
       }
     ];
     const response = { data };
