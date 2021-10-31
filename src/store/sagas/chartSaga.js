@@ -26,7 +26,7 @@ function* getChart(rqst) {
     const response_ = yield axios.get(`${RESOURCE_PREFIX}/${rqst.payload}`, {headers});
     console.log('response_', response_);
     // #FFFF00 yellow, blue #0000FF, white #FFFFFF, skybue #87CEEB, red #FF0000, green #00FF00
-    const data = [
+    const data2 = [
       {
         name: 'Temperature',
         series: [30, 40, 45, 50, 49, 60, 70, 91],
@@ -68,6 +68,7 @@ function* getChart(rqst) {
         color: '#00FF00'
       }
     ];
+    const data = response_.data;
     const response = { data };
     console.log('[fetch chart data]',response);
     yield put(setGetChartSucceed(response));

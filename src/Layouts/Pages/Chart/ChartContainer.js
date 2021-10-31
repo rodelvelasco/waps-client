@@ -54,7 +54,7 @@ class ChartContainer extends PureComponent<Props, State> {
     return (
         <React.Fragment>
             <div>
-                <div>
+                {/* <div>
                       <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
                           <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>
                             <AreaTimeSeries/>
@@ -77,7 +77,7 @@ class ChartContainer extends PureComponent<Props, State> {
                               </div>
                           </div>
                       </div>
-                </div>
+                </div> */}
                 <div>
                     {
                       this.chartData.map(data => (
