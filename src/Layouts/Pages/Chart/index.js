@@ -1,6 +1,7 @@
 // @flow
 import { connect } from 'react-redux';
 import ChartContainer from './ChartContainer';
+import './chart.css';
 
 import {attemptToGetChart,resetGetChartState
 } from '../../../store/actions/chartAction';

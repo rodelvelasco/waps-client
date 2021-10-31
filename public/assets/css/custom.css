@@ -97,10 +97,20 @@ td.notthis:hover {
 	line-height: 250px;    
 }
 
-.btn-dt-range {
+.dt-range-active {
 	padding-right: 10 !important;
     padding-left: 10 !important;
-	box-shadow: none !important
+	box-shadow: none !important;
+	background-color: 'orange';
+	color: 'white'
+}
+
+.dt-range {
+	padding-right: 10 !important;
+    padding-left: 10 !important;
+	box-shadow: none !important;
+	background-color: 'black';
+	color: 'white'
 }
 
 .count-font{

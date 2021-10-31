@@ -12,15 +12,26 @@ type Props = {
     resetChart: Function
 }
 
+let isLoading = false;
+
 class ChartContainer extends PureComponent<Props, State> {
 
   constructor(props: Props, context: Context) {
     super(props, context);
     this.state = {
+      dtGrp: 'thisyear'
     }
     this.chartData = []
   }
 
+  handleDtSlctChange = (dtGrp) => {
+    this.isLoading = true;
+		this.setState({
+			...this.state,
+			dtGrp: dtGrp,
+    });
+    this.props.fetchChart(dtGrp);
+	};
 
   componentWillMount() {
     console.log('componentWillMount');
@@ -54,86 +65,62 @@ class ChartContainer extends PureComponent<Props, State> {
     return (
         <React.Fragment>
             <div>
-                <div style={{marginBottom: '30px', marginLeft: '40px'}}>
-                    <button id="today" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
-                    Today
-                    </button>&nbsp;
-                    <button id="one_month" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
-                    This Week
-                    </button>&nbsp;
-                    <button id="six_months" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
-                    Last Week
-                    </button>&nbsp;
-                    <button id="one_year" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
-                    This Month
-                    </button>&nbsp;
-                    <button id="ytd" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'black', color: 'white'}}>
-                    Last Month
-                    </button>&nbsp;
-                    <button id="all" style={{paddingLeft: '10px', paddingRight: '10px', backgroundColor: 'orange', color: 'white'}}>
-                    This Year
-                    </button>
-                </div>
-                {/* <div>
-                      <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
-                          <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>
-                            <AreaTimeSeries/>
-                          </div>
-                          <div className="col-md-3" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px'}}>
-                              <div className="div-chart-sum">
-                                  <div>
-                                    <ul>
-                                        <li>
-                                          <a>Average&nbsp;:&nbsp;10</a>
-                                        </li>
-                                        <li>
-                                          <a>Maximum&nbsp;:&nbsp;20</a>
-                                        </li>
-                                        <li>
-                                          <a>Minimum&nbsp;:&nbsp;1</a>
-                                        </li>
-                                    </ul>
+                    <div style={{marginBottom: '30px', marginLeft: '40px'}}>
+                        <button id="today" onClick={() => this.handleDtSlctChange('today')} className="dt-range" >
+                        Today
+                        </button>&nbsp;
+                        <button id="thiswk" onClick={() => this.handleDtSlctChange('thiswk')}>
+                        This Week
+                        </button>&nbsp;
+                        <button id="lastwk" onClick={() => this.handleDtSlctChange('lastwk')} >
+                        Last Week
+                        </button>&nbsp;
+                        <button id="thismonth" onClick={() => this.handleDtSlctChange('thismonth')}>
+                        This Month
+                        </button>&nbsp;
+                        <button id="lastmonth" onClick={() => this.handleDtSlctChange('lastmonth')} >
+                        Last Month
+                        </button>&nbsp;
+                        <button id="thisyear" onClick={() => this.handleDtSlctChange('thisyear')} className="active">
+                        This Year
+                        </button>
+                    </div>
+                    <div>
+                        { !this.isLoading &&
+                          this.chartData.map(data => (
+                            <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
+                              <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>
+                                <LineSmooth
+                                  series={data.series}
+                                  seriesName={data.seriesName}
+                                  categories={data.categories}
+                                  maxVal={data.maxVal}
+                                  name={data.name}
+                                  unit={data.unit}
+                                  color={data.color}
+                                />
+                              </div>
+                              <div className="col-md-3" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px'}} id={data.name + '_b'}>
+                                  <div className="div-chart-sum" id={data.name + '_ba'}>
+                                      <div id={data.name + '_bb'}>
+                                        <ul>
+                                            <li id={data.name + '1'}>
+                                              <a>Average&nbsp;:&nbsp;{data.avg}</a>
+                                            </li>
+                                            <li id={data.name + '2'}>
+                                              <a>Maximum&nbsp;:&nbsp;{data.max}</a>
+                                            </li>
+                                            <li id={data.name + '3'}>
+                                              <a>Minimum&nbsp;:&nbsp;{data.min}</a>
+                                            </li>
+                                        </ul>
+                                      </div>
                                   </div>
                               </div>
-                          </div>
-                      </div>
-                </div> */}
-                <div>
-                    {
-                      this.chartData.map(data => (
-                        <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
-                          <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>
-                            <LineSmooth
-                              series={data.series}
-                              seriesName={data.seriesName}
-                              categories={data.categories}
-                              maxVal={data.maxVal}
-                              name={data.name}
-                              unit={data.unit}
-                              color={data.color}
-                            />
-                          </div>
-                          <div className="col-md-3" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px'}} id={data.name + '_b'}>
-                              <div className="div-chart-sum" id={data.name + '_ba'}>
-                                  <div id={data.name + '_bb'}>
-                                    <ul>
-                                        <li id={data.name + '1'}>
-                                          <a>Average&nbsp;:&nbsp;{data.avg}</a>
-                                        </li>
-                                        <li id={data.name + '2'}>
-                                          <a>Maximum&nbsp;:&nbsp;{data.max}</a>
-                                        </li>
-                                        <li id={data.name + '3'}>
-                                          <a>Minimum&nbsp;:&nbsp;{data.min}</a>
-                                        </li>
-                                    </ul>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      ))
-                    }
-                </div>
+                            </div>
+                          ))
+                        }
+                    </div>
             </div>
         </React.Fragment>
     );

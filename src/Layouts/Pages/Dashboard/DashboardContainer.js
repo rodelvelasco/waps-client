@@ -24,6 +24,7 @@ class DashboardContainer extends PureComponent<Props, State> {
   constructor(props: Props, context: Context) {
     super(props, context);
     this.state = {
+      
     }
     this.timeMsg = 'Until refresh';
     this.timerLimit = 30;
@@ -41,7 +42,6 @@ class DashboardContainer extends PureComponent<Props, State> {
       WaterFlow: 0
     }
   }
-
 
   componentWillMount() {
     console.log('componentWillMount');
