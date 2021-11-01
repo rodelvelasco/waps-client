@@ -67,7 +67,7 @@ class ChartContainer extends PureComponent<Props, State> {
         <React.Fragment>
             <div>
                     <div style={{marginBottom: '30px', marginLeft: '40px'}}>
-                        <button id="today" onClick={() => this.handleDtSlctChange('today')} className="dt-range" >
+                        <button id="today" onClick={() => this.handleDtSlctChange('today')} >
                         Today
                         </button>&nbsp;
                         <button id="thiswk" onClick={() => this.handleDtSlctChange('thiswk')}>
@@ -82,7 +82,7 @@ class ChartContainer extends PureComponent<Props, State> {
                         <button id="lastmonth" onClick={() => this.handleDtSlctChange('lastmonth')} >
                         Last Month
                         </button>&nbsp;
-                        <button id="thisyear" onClick={() => this.handleDtSlctChange('thisyear')} className="active">
+                        <button id="thisyear" onClick={() => this.handleDtSlctChange('thisyear')} class="active">
                         This Year
                         </button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <button id="refresh" onClick={() => this.handleDtSlctChange(null)}>
