@@ -96,7 +96,7 @@ class LineSmooth extends Component {
           offsetY: 0,
           floating: false,
           style: {
-            fontSize:  '16px',
+            fontSize:  '14px',
             fontWeight:  'bold',
             fontFamily:  undefined,
             color:  'gray'
