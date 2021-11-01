@@ -18,9 +18,9 @@ class ChartContainer extends PureComponent<Props, State> {
   constructor(props: Props, context: Context) {
     super(props, context);
     this.state = {
-      dtGrp: 'thisyear'
-    }
-    this.chartData = []
+      dtGrp: 'thiswk'
+    };
+    this.chartData = [];
   }
 
   handleDtSlctChange = (dtGrp) => {
@@ -31,7 +31,7 @@ class ChartContainer extends PureComponent<Props, State> {
         dtGrp: dtGrp,
       });
     }
-	  this.props.fetchChart(dtGrp ? dtGrp : this.state.dtGrp);
+    this.props.fetchChart(dtGrp ? dtGrp : this.state.dtGrp);
 	};
 
   componentWillMount() {
@@ -67,25 +67,25 @@ class ChartContainer extends PureComponent<Props, State> {
         <React.Fragment>
             <div>
                     <div style={{marginBottom: '30px', marginLeft: '40px'}}>
-                        <button id="today" onClick={() => this.handleDtSlctChange('today')} >
+                        <button id="today" className= { this.state.dtGrp === "today" ? "active" : null} onClick={() => this.handleDtSlctChange('today')} >
                         Today
-                        </button>&nbsp;
-                        <button id="thiswk" onClick={() => this.handleDtSlctChange('thiswk')}>
+                        </button>
+                        <button id="thiswk" className= { this.state.dtGrp === "thiswk" ? "active" : null} onClick={() => this.handleDtSlctChange('thiswk')}>
                         This Week
-                        </button>&nbsp;
-                        <button id="lastwk" onClick={() => this.handleDtSlctChange('lastwk')} >
+                        </button>
+                        <button id="lastwk" className= { this.state.dtGrp === "lastwk" ? "active" : null} onClick={() => this.handleDtSlctChange('lastwk')} >
                         Last Week
-                        </button>&nbsp;
-                        <button id="thismonth" onClick={() => this.handleDtSlctChange('thismonth')}>
+                        </button>
+                        <button id="thismonth" className= { this.state.dtGrp === "thismonth" ? "active" : null} onClick={() => this.handleDtSlctChange('thismonth')}>
                         This Month
-                        </button>&nbsp;
-                        <button id="lastmonth" onClick={() => this.handleDtSlctChange('lastmonth')} >
+                        </button>
+                        <button id="lastmonth" className= { this.state.dtGrp === "lastmonth" ? "active" : null} onClick={() => this.handleDtSlctChange('lastmonth')} >
                         Last Month
-                        </button>&nbsp;
-                        <button id="thisyear" onClick={() => this.handleDtSlctChange('thisyear')} class="active">
+                        </button>
+                        <button id="thisyear" className= { this.state.dtGrp === "thisyear" ? "active" : null} onClick={() => this.handleDtSlctChange('thisyear')}>
                         This Year
                         </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="refresh" onClick={() => this.handleDtSlctChange(null)}>
+                        <button id="refresh" className= { this.state.dtGrp === "refresh" ? "btn-refresh" : "btn-refresh"} onClick={() => this.handleDtSlctChange(this.state.dtGrp)}>
                         Refresh
                         </button>
                     </div>
@@ -104,7 +104,7 @@ class ChartContainer extends PureComponent<Props, State> {
                                   color={data.color}
                                 />
                               </div>
-                              <div className="col-md-3" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px'}} id={data.name + '_b'}>
+                              <div className="col-md-2" style={{ marginTop: '0px', marginLeft: '20px', marginRight: '20px', border: '1px solid'}} id={data.name + '_b'}>
                                   <div className="div-chart-sum" id={data.name + '_ba'}>
                                       <div id={data.name + '_bb'}>
                                         <ul>

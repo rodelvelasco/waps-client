@@ -2,11 +2,16 @@
 button {
     display: inline-block;
     border: none;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem; */
+    padding: 5px 10px 5px 10px;
     margin: 0;
+    margin-right: 2px;
     text-decoration: none;
-    background: #0069ed;
-    color: #ffffff;
+    background: transparent;
+    color: blue;
+    border: 1px solid white;
+    /* background: #0069ed; */
+    /* color: #ffffff; */
     font-family: sans-serif;
     font-size: 1.5rem;
     line-height: 1;
@@ -23,13 +28,28 @@ button:focus {
 }
 
 button:focus {
-    outline: 1px solid #fff;
+    /* outline: 1px solid #fff; */
     outline-offset: -4px;
-    background: orange;
+    background: transparent;
+    /* background: yellow; */
 }
 
 button:active {
     transform: scale(0.99);
-    background: orange;
-    color: 'white'
+    background: green !important;
+    color: 'white' !important;
+}
+
+.active {
+    transform: scale(0.99);
+    background: yellowgreen !important;
+    color: 'white' !important;
+}
+
+.btn-refresh {
+    color: white;
+    font-weight: 200;
+    background-color: black;
+    margin-left: 50px;
+    border: 1px solid gray;
 }
