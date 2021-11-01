@@ -25,11 +25,13 @@ class ChartContainer extends PureComponent<Props, State> {
 
   handleDtSlctChange = (dtGrp) => {
     this.isLoading = true;
-		this.setState({
-			...this.state,
-			dtGrp: dtGrp,
-    });
-    this.props.fetchChart(dtGrp);
+    if (dtGrp && dtGrp.length) {
+      this.setState({
+        ...this.state,
+        dtGrp: dtGrp,
+      });
+    }
+	  this.props.fetchChart(dtGrp ? dtGrp : this.state.dtGrp);
 	};
 
   componentWillMount() {
@@ -82,10 +84,13 @@ class ChartContainer extends PureComponent<Props, State> {
                         </button>&nbsp;
                         <button id="thisyear" onClick={() => this.handleDtSlctChange('thisyear')} className="active">
                         This Year
+                        </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="refresh" onClick={() => this.handleDtSlctChange(null)}>
+                        Refresh
                         </button>
                     </div>
                     <div>
-                        { !this.isLoading &&
+                        { (!this.isLoading && this.chartData && this.chartData.length) &&
                           this.chartData.map(data => (
                             <div className="col-md-12" style={{display: 'flex', marginBottom: '30px'}} id={data.name}>
                               <div className="col-md-9" style={{ marginLeft: '20px', marginRight: '20px', border: '1px solid', paddingTop: '20px'}} id={data.name + '_a'}>

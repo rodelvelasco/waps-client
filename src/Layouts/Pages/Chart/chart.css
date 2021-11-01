@@ -29,4 +29,6 @@ button:focus {
 
 button:active {
     transform: scale(0.99);
+    background: orange;
+    color: 'white'
 }
