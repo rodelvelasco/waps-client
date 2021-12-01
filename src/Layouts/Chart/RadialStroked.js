@@ -36,8 +36,9 @@ class RadialStroked extends React.Component {
 								color: "white",
 								formatter: function (val) {
 									// return val + '' + props.unit;
-									return val;
-									// return (val * this.props.maxVal) / 100
+									// return val;
+									// val = props.maxVal ? (val * 100) / props.maxVal : val;
+									return val
 									
 								}
 							}
@@ -72,22 +73,25 @@ class RadialStroked extends React.Component {
 	  render() {
 		
 		let dataValue = this.state.series;
-
-		// if (this.state.maxval) {
-			// dataValue = (this.state.series * 100) / 1000;
+		console.log('dataValue', dataValue);
+		// if (this.state.maxVal) {
+		 	// dataValue = (dataValue * 100) / this.state.maxVal;
+		// 	console.log('dataValue', dataValue);
 		// }
 
 		// let dataValue2 = [(this.state.series[0] * 100) / this.state.maxVal];
 
 		// console.log('this.state', this.state);
 		console.log('this.state.series', this.state.series);
-		// console.log('this.state.maxval', this.state.maxval);
+		console.log('this.state.maxval', this.state.maxVal);
 		// console.log('dataValue', dataValue);
 		//  console.log('dataValue2', dataValue2);
+
 
 		// function valueToPercent (value) {
 		// 	return (value * 100) / max
 		// } 
+
 		return (
 			<div id="card">
 				<div id="chart">

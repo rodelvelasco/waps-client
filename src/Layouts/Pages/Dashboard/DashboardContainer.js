@@ -132,7 +132,7 @@ class DashboardContainer extends PureComponent<Props, State> {
                       <div class="row st-no-pad-no-margin">
                       <RadialStroked
                         series={[this.deviceData.Temperature]}
-                        maxVal={600}
+                        maxVal={200}
                         label={['Temperature']}
                         unit={'Farenheiht'}
                       />
